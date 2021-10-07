@@ -1,0 +1,28 @@
+.logo {
+   width: 10%;
+}
+.header-title {
+   text-align: center;
+   font-size: 3rem;
+}
+.search-wrapper {
+   padding: 0 25%;
+   display: flex;
+}
+.search {
+   height: 43.2px;
+   padding-left: 20px;
+   border-radius: 20px 0 0 20px;
+   border-color: #ffbc2a;
+   -webkit-box-shadow: 11px 12px 27px -5px rgba(255,207,103,0.7);
+   box-shadow: 11px 12px 27px -5px rgba(255,207,103,0.7);
+}
+.fa-search {
+   font-size: 20px;
+   padding: 10px 15px 10px 10px;
+   border-radius: 0 20px 20px 0;
+   background: #24c0ff;
+}
+.fa-search:hover {
+   background: #aaa;
+}
