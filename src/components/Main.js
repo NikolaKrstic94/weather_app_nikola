@@ -18,30 +18,14 @@ class Main extends Component {
    }
 
    updateState = (data) => {
-
-      let days = [];
-      for (let i = 0; i < 5; i++) {
-         days.push({
-            temp: data.list[8 * i].main.temp,
-            date: data.list[8 * i].dt_txt,
-            weather_main: data.list[8 * i].weather[0].main,
-            weather_desc: data.list[8 * i].weather[0].description,
-            temp_min: data.list[8 * i].weather[0].main.temp_min,
-            icon: data.list[8 * i].weather[0].icon,
-         });
-      }
-
       this.setState({
-         ...this.state,
          city: data.city.name,
          lon: data.city.coord.lon,
          lat: data.city.coord.lat,
-         days: days,
       });
    };
 
-      updateStateSecond = (data) => {
-
+   updateStateSecond = (data) => {
       let days = [];
       for (let i = 0; i < 5; i++) {
          days.push({
@@ -61,53 +45,62 @@ class Main extends Component {
       });
    };
 
-    timeConverter(UNIX_timestamp){
-  var a = new Date(UNIX_timestamp * 1000);
-  var months = ['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'];
-  var year = a.getFullYear();
-  var month = months[a.getMonth()];
-  var date = a.getDate();
-  var hour = a.getHours();
-  var min = a.getMinutes();
-  var sec = a.getSeconds();
-  var time = date + ' ' + month + ' ' + year + ' ' + hour + ':' + min + ':' + sec ;
-  return time;
-}
-
+   timeConverter(UNIX_timestamp) {
+      var a = new Date(UNIX_timestamp * 1000);
+      var months = [
+         'Jan',
+         'Feb',
+         'Mar',
+         'Apr',
+         'May',
+         'Jun',
+         'Jul',
+         'Aug',
+         'Sep',
+         'Oct',
+         'Nov',
+         'Dec',
+      ];
+      var year = a.getFullYear();
+      var month = months[a.getMonth()];
+      var date = a.getDate();
+      var hour = a.getHours();
+      var min = a.getMinutes();
+      var sec = a.getSeconds();
+      var time =
+         date + ' ' + month + ' ' + year + ' ' + hour + ':' + min + ':' + sec;
+      return time;
+   }
 
    makeApiCall = async (city) => {
-      await fetch(
+      fetch(
          `https://api.openweathermap.org/data/2.5/forecast?q=${city}&units=metric&APPID=${API_KEY}`
       )
          .then((response) => response.json())
          .then((response) => {
-            console.log(response);
             this.updateState(response);
-         })
-         .catch((err) => {
-            alert("You've entered a wrong city, click OK and try again");
-            return false;
-         });
-
-
-         // drugi API call
-
-
-
-          await fetch(
-         `https://api.openweathermap.org/data/2.5/onecall?lat=${this.state.lat}&lon=${this.state.lon}&exclude=hourly,minutely&units=metric&appid=${API_KEY}`
-      )
-
-         .then((response) => response.json())
-         .then((response) => {
-            this.updateStateSecond(response);
             console.log(response);
+
+            // drugi API call
+            fetch(
+               `https://api.openweathermap.org/data/2.5/onecall?lat=${response.city.coord.lat}&lon=${response.city.coord.lon}&exclude=hourly,minutely&units=metric&appid=${API_KEY}`
+            )
+               .then((response) => response.json())
+               .then((response) => {
+                  this.updateStateSecond(response);
+                  console.log(response);
+               })
+               .catch((err) => {
+                  console.log(err);
+                  return false;
+               });
          })
          .catch((err) => {
-            console.log(err);
+            alert("You've entered an invalid city, click OK and try again");
             return false;
          });
 
+      // drugi API call
    };
 
    render() {
