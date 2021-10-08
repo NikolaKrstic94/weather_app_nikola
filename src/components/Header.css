@@ -1,12 +1,12 @@
 .logo {
-   width: 10%;
+   /* width: 10%; */
 }
 .header-title {
    text-align: center;
    font-size: 3rem;
 }
 .search-wrapper {
-   padding: 0 25%;
+   /* padding: 0 25%; */
    display: flex;
 }
 .search {

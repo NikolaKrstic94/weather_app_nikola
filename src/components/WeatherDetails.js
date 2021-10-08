@@ -5,7 +5,7 @@ const WeatherDetails = (props) => {
     if(props.weather){
         return (
             <div className="col-12 p-3">
-                <div className="card col-10 col-md-6 mx-auto">
+                <div className="card col-12 col-md-6 mx-auto">
                     <div className="card-body">
                         <h2>
                             Today in {props.city}

@@ -116,13 +116,15 @@ class Main extends Component {
       };
 
       return (
-         <div className=' main'>
-            <Header makeApiCall={this.makeApiCall} />
-            <WeatherDetails
-               weather={this.state.days[0]}
-               city={this.state.city}
-            />
-            <MiniWeatherBoxes />
+         <div className='container'>
+            <div className='main'>
+               <Header makeApiCall={this.makeApiCall} />
+               <WeatherDetails
+                  weather={this.state.days[0]}
+                  city={this.state.city}
+               />
+               <MiniWeatherBoxes />
+            </div>
          </div>
       );
    }

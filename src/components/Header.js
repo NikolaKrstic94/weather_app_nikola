@@ -20,26 +20,28 @@ class Header extends Component {
 
    render() {
       return (
-         <div className='col-12 py-4 header'>
-            <h1 className='col-12 header-title'>
-               <img className='logo' src={logo} alt='logo' />
-               Weather App
-            </h1>
+         <div className='container'>
+            <div className=' col-12 py-4 header'>
+               <h1 className='col-12 header-title'>
+                  <img className='logo col-sm-2' src={logo} alt='logo' />
+                  Weather App
+               </h1>
 
-            <div className='py-2 search-wrapper'>
-               <input
-                  type='text'
-                  className='search form-control'
-                  id='location'
-                  aria-describedby=''
-                  placeholder='Enter City name'
-                  onChange={this.handleChange}
-               />
-               <button
-                  type='submit'
-                  onClick={this.handleSubmit}
-                  className='fa fa-search'
-               />
+               <div className='py-2 search-wrapper col-md-8 mx-auto'>
+                  <input
+                     type='text'
+                     className='search form-control'
+                     id='location'
+                     aria-describedby=''
+                     placeholder='Enter City name'
+                     onChange={this.handleChange}
+                  />
+                  <button
+                     type='submit'
+                     onClick={this.handleSubmit}
+                     className='fa fa-search'
+                  />
+               </div>
             </div>
          </div>
       );
