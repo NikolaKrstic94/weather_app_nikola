@@ -1,5 +1,6 @@
 import React from 'react';
-import { baseUrlImage } from '../api';
+
+const baseUrlImage = process.env.REACT_APP_baseUrlImage;
 
 const getDay = (date) => {
    let weekdays = ['Sun', 'Mon', 'Tues', 'Wed', 'Thurs', 'Fri', 'Sat'];
@@ -20,7 +21,6 @@ const MiniWeatherBox = (props) => {
             </h2>
             <p>Min temp:{props.weather.temp_min}°C </p>
             <p>Max temp:{props.weather.temp_max}°C</p>
-
          </div>
       );
    } else {

@@ -1,9 +1,10 @@
 import React, { Component } from 'react';
 import Header from './Header';
-import { API_KEY } from '../api';
 import MiniWeatherBox from './MiniWeatherBox';
 import WeatherDetails from './WeatherDetails';
 import './Main.css';
+
+const API_KEY = process.env.REACT_APP_API_KEY;
 
 class Main extends Component {
    constructor(props) {
@@ -100,7 +101,7 @@ class Main extends Component {
             return false;
          });
 
-      // drugi API call
+
    };
 
    render() {

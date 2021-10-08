@@ -1,5 +1,5 @@
 import React from 'react';
-import { baseUrlImage } from '../api';
+const baseUrlImage = process.env.REACT_APP_baseUrlImage;
 
 const WeatherDetails = (props) => {
     if(props.weather){
