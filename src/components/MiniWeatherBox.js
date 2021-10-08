@@ -3,14 +3,14 @@ import React from 'react';
 const baseUrlImage = process.env.REACT_APP_baseUrlImage;
 
 const getDay = (date) => {
-   let weekdays = ['Sun', 'Mon', 'Tues', 'Wed', 'Thurs', 'Fri', 'Sat'];
+   let weekdays = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
    return weekdays[new Date(date).getDay()];
 };
 
 const MiniWeatherBox = (props) => {
    if (props.weather) {
       return (
-         <div className=''>
+         <div className='col-sm-12'>
             <h2>{getDay(props.weather.date)}</h2>
             <h2>
                <img

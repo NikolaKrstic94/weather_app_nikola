@@ -1,11 +1,8 @@
 .weather-box-list {
-   display: flex;
-   width: 95%;
    margin: auto;
    padding: 30px 0;
 }
 .weather-box {
-   margin: auto;
    background: #ffffffbd;
    border-radius: 10px;
    box-shadow: 2px 2px 5px gray;
@@ -13,3 +10,17 @@
    display: flex;
    justify-content: center;
 }
+
+@media (min-width: 768px) {
+   .weather-box-list {
+      display: flex;
+   }
+ }
+
+
+@media (min-width: 780px) {
+.weather-box {
+   padding: 30px 0;
+   margin: auto;
+}
+ }

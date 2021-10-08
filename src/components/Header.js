@@ -11,7 +11,7 @@ class Header extends Component {
    }
    handleChange = (e) => {
       this.setState({
-         city: e.target.value,
+         city: e.target.value.trim(),
       });
    };
    handleSubmit = (e) => {
